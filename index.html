@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ნელა ზვიადი - მეგობრების თავგადასავალი</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="game-container">
+    <!-- Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-box">
+        ქულა: <span id="scoreText">0</span>
+      </div>
+      <div class="hud-box" style="text-align: right;">
+        <span id="charAbilityText">უნარი (Shift / E)</span>
+        <div class="ability-meter">
+          <div id="abilityFill" class="ability-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start / Character Selection Screen -->
+    <div id="startScreen" class="overlay">
+      <h1>ნელა ზვიადი!</h1>
+      <p class="subtitle">აირჩიე პერსონაჟი და გადაურჩი დაბრკოლებებს</p>
+
+      <div class="char-select">
+        <!-- იოანე -->
+        <div class="char-card selected" onclick="selectCharacter('ioane')" id="card-ioane">
+          <div class="char-avatar" style="background: #ef4444;">ი</div>
+          <div class="char-name">იოანე</div>
+          <div class="char-ability">ორმაგი ნახტომი</div>
+        </div>
+        <!-- ანდრია -->
+        <div class="char-card" onclick="selectCharacter('andria')" id="card-andria">
+          <div class="char-avatar" style="background: #3b82f6;">ა</div>
+          <div class="char-name">ანდრია</div>
+          <div class="char-ability">ფარი (100% დაცვა)</div>
+        </div>
+        <!-- ილია -->
+        <div class="char-card" onclick="selectCharacter('ilia')" id="card-ilia">
+          <div class="char-avatar" style="background: #10b981;">ი</div>
+          <div class="char-name">ილია</div>
+          <div class="char-ability">სწრაფი სპრინტი</div>
+        </div>
+        <!-- გაბრიელი -->
+        <div class="char-card" onclick="selectCharacter('gabriel')" id="card-gabriel">
+          <div class="char-avatar" style="background: #f59e0b;">გ</div>
+          <div class="char-name">გაბრიელი</div>
+          <div class="char-ability">ნელა ზვიადი (Slow-Mo)</div>
+        </div>
+      </div>
+
+      <button class="btn" onclick="startGame()">თამაშის დაწყება</button>
+      <div class="controls-hint">მართვა: Space / W / ↑ / ან ეკრანზე შეხება = ნახტომი | Shift / E = სუპერ უნარი</div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="overlay hidden">
+      <h1 style="color: #ef4444;">თამაში დასრულდა!</h1>
+      <p class="subtitle" id="finalScoreText">შენი ქულა: 0</p>
+      <button class="btn" onclick="restartGame()">ხელახლა დაწყება</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
